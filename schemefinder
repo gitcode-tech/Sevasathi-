@@ -1,0 +1,31 @@
+import React,{useState} from "react";
+import axios from "axios";
+
+function SchemeFinder(){
+
+ const [schemes,setSchemes] = useState([]);
+
+ const findSchemes = async()=>{
+  const res = await axios.post("http://localhost:5000/schemes/recommend",{
+    age:65,
+    gender:"Female",
+    caste:"SC",
+    income:100000
+  });
+
+  setSchemes(res.data.schemes);
+ }
+
+ return(
+   <div>
+   <button onClick={findSchemes}>Find Eligible Schemes</button>
+
+   <ul>
+   {schemes.map(s=><li>{s}</li>)}
+   </ul>
+
+   </div>
+ );
+}
+
+export default SchemeFinder;
