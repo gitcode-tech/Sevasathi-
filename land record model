@@ -1,0 +1,9 @@
+const mongoose = require("mongoose");
+
+const LandSchema = new mongoose.Schema({
+ owner:String,
+ surveyNumber:String,
+ history:[String]
+});
+
+module.exports = mongoose.model("Land",LandSchema);
