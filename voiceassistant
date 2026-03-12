@@ -1,0 +1,25 @@
+import React from "react";
+
+function VoiceAssistant(){
+
+ const startVoice = ()=>{
+
+ const recognition = new window.webkitSpeechRecognition();
+
+ recognition.onresult=(event)=>{
+   alert("You said: "+event.results[0][0].transcript);
+ }
+
+ recognition.start();
+ }
+
+ return(
+   <div>
+   <button onClick={startVoice}>
+   🎤 Speak
+   </button>
+   </div>
+ );
+}
+
+export default VoiceAssistant;
