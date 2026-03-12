@@ -1,0 +1,13 @@
+const express = require("express");
+const router = express.Router();
+const recommendSchemes = require("../ai/schemeEngine");
+
+router.post("/recommend",(req,res)=>{
+
+ const user=req.body;
+ const schemes = recommendSchemes(user);
+
+ res.json({schemes});
+});
+
+module.exports=router;
