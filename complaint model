@@ -1,0 +1,9 @@
+const mongoose = require("mongoose");
+
+const ComplaintSchema = new mongoose.Schema({
+ user:String,
+ issue:String,
+ status:{type:String,default:"Pending"}
+});
+
+module.exports = mongoose.model("Complaint",ComplaintSchema);
